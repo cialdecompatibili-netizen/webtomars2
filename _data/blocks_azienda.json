@@ -3,12 +3,18 @@
     "id": "chi",
     "nome": "Chi siamo",
     "enabled": true,
-    "html": "<div class=\"gc\"><section class=\"gc-sec\" id=\"chi\"><div class=\"gc-wrap\"><p class=\"gc-eyebrow\">Chi siamo</p><h2 class=\"gc-h2\">Titolo della presentazione</h2><p class=\"gc-lead\">Chi siete, cosa fate e per chi.</p><p>Un paragrafo in più su come lavorate.</p></div></section></div>"
+    "html": "<div class=\"gc\"><section class=\"gc-sec\" id=\"chi\"><div class=\"gc-wrap\"><p class=\"gc-eyebrow\">Chi siamo</p><h2 class=\"gc-h2\">Trasformiamo idee e obiettivi di business in piattaforme digitali che funzionano.</h2><p class=\"gc-lead\">Siamo una web agency di Roma e lavoriamo dal 2013 con imprenditori, start up, grandi aziende e Pubblica Amministrazione.</p><p>Non vendiamo pacchetti preconfezionati: partiamo dal tuo business, capiamo dove vuoi arrivare e costruiamo il percorso pi&#249; concreto per arrivarci.</p></div></section></div>"
   },
   {
     "id": "principi",
-    "nome": "Principi",
+    "nome": "Perché noi",
     "enabled": true,
-    "html": "<div class=\"gc\"><section class=\"gc-sec gc-soft\" id=\"principi\"><div class=\"gc-wrap\"><h2 class=\"gc-h2\">Come ci comportiamo</h2><div class=\"gc-plat\"><div class=\"gc-pl\"><span class=\"n\">1</span><b>Primo principio</b><p>Descrizione breve.</p></div><div class=\"gc-pl\"><span class=\"n\">2</span><b>Secondo principio</b><p>Descrizione breve.</p></div><div class=\"gc-pl\"><span class=\"n\">3</span><b>Terzo principio</b><p>Descrizione breve.</p></div></div></div></section></div>"
+    "html": "<div class=\"gc\"><section class=\"gc-sec gc-soft\" id=\"principi\"><div class=\"gc-wrap\"><h2 class=\"gc-h2\">Perch&#233; scegliere noi</h2><div class=\"gc-plat ent-4\"><div class=\"gc-pl\"><span class=\"n\">1</span><b>Analisi su misura</b><p>Ogni progetto nasce dal tuo business e dai tuoi obiettivi, non da un modello standard.</p></div><div class=\"gc-pl\"><span class=\"n\">2</span><b>Creativit&#224; e concretezza</b><p>Idee che si vedono e numeri che si leggono: puntiamo a risultati misurabili.</p></div><div class=\"gc-pl\"><span class=\"n\">3</span><b>Un solo interlocutore</b><p>Dalla strategia al risultato, un team coordinato che risponde di tutto il progetto.</p></div><div class=\"gc-pl\"><span class=\"n\">4</span><b>Tempi di risposta certi</b><p>Ti rispondiamo entro 24 ore (festivi esclusi) e la prima consulenza &#232; gratuita.</p></div></div></div></section></div>"
+  },
+  {
+    "id": "cta",
+    "nome": "Contatti",
+    "enabled": true,
+    "html": "<div class=\"gc\"><section class=\"gc-sec gc-dark\" id=\"cta\"><div class=\"gc-wrap\"><h2 class=\"gc-h2\">Vuoi far crescere il tuo business?</h2><p class=\"gc-lead\">Raccontaci di cosa hai bisogno: costruiamo insieme la soluzione giusta per te. La prima consulenza &#232; gratuita.</p><a class=\"gc-btn\" href=\"__BASEURL__/contatti/\">Richiedi un preventivo</a></div></section></div>"
   }
 ]
