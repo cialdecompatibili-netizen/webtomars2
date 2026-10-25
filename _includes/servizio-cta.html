@@ -1,17 +1,10 @@
 {%- comment -%}
-GUIDA-SVILUPPO: CTA delle pagine servizio (striscia mini o blocco finale). Link WhatsApp da site.whatsapp: se e' vuoto il link diventa '#' (il pulsante resta visibile: per nasconderlo avvolgi il blocco in {% if site.whatsapp != '' %}).
-NOTA: i testi di questo include sono in italiano fisso e NON passano da ui-text.yml: in una lingua diversa vanno resi traducibili.
+GUIDA-SVILUPPO: CTA delle pagine servizio, inserita da _layouts/single.html. Il pulsante WhatsApp compare SOLO se in _config.yml whatsapp e' pieno; il modulo contatti c'e' sempre. Testi in italiano fisso (non passano da ui-text.yml).
+Parametri: tipo="mini" = striscia compatta, testo="..." = frase della striscia. Senza tipo = blocco finale grande.
+NB: dentro i commenti NON scrivere tag Liquid con graffa e percentuale: Liquid li apre davvero e rompe la build.
 {%- endcomment -%}
-{%- comment -%}
-  CTA delle pagine servizio. Parametri:
-    tipo="mini"   -> striscia compatta da mettere a meta' pagina: {% include servizio-cta.html tipo="mini" %}
-    (senza tipo)  -> blocco finale grande (inserito in automatico da _layouts/single.html)
-    testo="..."   -> frase della striscia mini (facoltativa)
-  Il messaggio WhatsApp parte gia' compilato con il nome del servizio.
-{%- endcomment -%}
-{%- assign sv_msg = "Buongiorno, vorrei un sopralluogo gratuito e un preventivo per: " | append: page.title | append: "." -%}
+{%- assign sv_msg = "Buongiorno, vorrei informazioni su: " | append: page.title | append: "." -%}
 {%- assign sv_wa = "https://wa.me/" | append: site.whatsapp | append: "?text=" | append: sv_msg | url_encode -%}
-{%- if site.whatsapp == "" -%}{%- assign sv_wa = "#" -%}{%- endif -%}
 {%- unless sv_css_done -%}
 <style>
 .sv-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.35rem;border-radius:10px;font-weight:700;font-size:1rem;line-height:1.2;text-decoration:none !important;border:2px solid transparent;cursor:pointer}
@@ -39,17 +32,16 @@ NOTA: i testi di questo include sono in italiano fisso e NON passano da ui-text.
 {%- endunless -%}
 {%- if include.tipo == "mini" -%}
 <div class="sv-mini">
-  <p>{{ include.testo | default: "Hai un dubbio o vuoi una risposta rapida? Scrivici due righe e una foto su WhatsApp." }}</p>
-  <a class="sv-btn sv-btn--wa" href="{{ sv_wa }}" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+  <p>{{ include.testo | default: "Hai un dubbio o vuoi una risposta rapida? Scrivici due righe." }}</p>
+  {%- if site.whatsapp != "" -%}<a class="sv-btn sv-btn--wa" href="{{ sv_wa }}" target="_blank" rel="noopener">Scrivici su WhatsApp</a>{%- else -%}<a class="sv-btn sv-btn--tel" href="{{ '/contatti/' | relative_url }}">Scrivici</a>{%- endif -%}
 </div>
 {%- else -%}
 <aside class="sv-cta" aria-label="Richiedi un preventivo">
-  <p class="sv-cta__title">Parliamone: sopralluogo gratuito, preventivo chiaro</p>
-  <p>Il modo più veloce è WhatsApp: scrivici cosa c'è da fare e allega 2 o 3 foto del punto (anche scattate da terra). Ti diciamo subito come procedere, senza impegno.</p>
+  <p class="sv-cta__title">Parliamone: prima consulenza gratuita, preventivo chiaro</p>
+  <p>Raccontaci cosa ti serve e da dove parti: ti diciamo come possiamo aiutarti, con tempi e costi detti prima. Senza impegno.</p>
   <div class="sv-cta__row">
-    <a class="sv-btn sv-btn--wa" href="{{ sv_wa }}" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
-    <a class="sv-btn sv-btn--tel" href="{% if site.whatsapp != '' %}tel:+{{ site.whatsapp }}{% else %}#{% endif %}">{% if site.whatsapp != '' %}Chiama +{{ site.whatsapp }}{% else %}Chiama (numero in arrivo){% endif %}</a>
-    <a class="sv-btn sv-btn--form" href="{{ '/contatti/' | relative_url }}">Preferisci il modulo?</a>
+    <a class="sv-btn sv-btn--wa" style="background:var(--t-accent,#e8590c)" href="{{ '/contatti/' | relative_url }}">Richiedi un preventivo</a>
+    {%- if site.whatsapp != "" -%}<a class="sv-btn sv-btn--tel" href="{{ sv_wa }}" target="_blank" rel="noopener">Scrivici su WhatsApp</a>{%- endif -%}
   </div>
   <p class="sv-cta__small">Rispondiamo entro 24 ore, festivi esclusi.</p>
 </aside>
